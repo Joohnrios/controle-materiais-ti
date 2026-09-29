@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --canvas: #eef3ef;
+  --surface: #ffffff;
+  --surface-2: #f3f7f4;
+  --ink: #1a2e24;
+  --muted: #5a6d63;
+  --faint: #8a9a91;
+  --line: #d5e0d8;
+  --line-soft: #e7eee9;
+  --accent: #1b6b45;
+  --accent-strong: #145536;
+  --accent-soft: #e5f3eb;
+  color-scheme: light;
+}
+
+.dark {
+  --canvas: #101613;
+  --surface: #18211c;
+  --surface-2: #212b25;
+  --ink: #e7f2eb;
+  --muted: #a3b5ab;
+  --faint: #7d9186;
+  --line: #314038;
+  --line-soft: #28332d;
+  --accent: #3dbe7a;
+  --accent-strong: #69d69a;
+  --accent-soft: #1c3328;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --font-sans: "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-soft: var(--accent-soft);
+  --color-slate-950: var(--ink);
+  --color-slate-900: var(--ink);
+  --color-slate-800: var(--ink);
+  --color-slate-700: var(--ink);
+  --color-slate-600: var(--muted);
+  --color-slate-500: var(--muted);
+  --color-slate-400: var(--faint);
+  --color-slate-300: var(--line);
+  --color-slate-200: var(--line);
+  --color-slate-100: var(--line-soft);
+  --color-slate-50: var(--surface-2);
+  --color-blue-800: var(--accent-strong);
+  --color-blue-700: var(--accent-strong);
+  --color-blue-600: var(--accent);
+  --color-blue-500: var(--accent);
+  --color-blue-100: var(--accent-soft);
+  --color-blue-50: var(--accent-soft);
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background: var(--canvas);
+  color: var(--ink);
+}
+
+#print-root {
+  --canvas: #ffffff;
+  --surface: #ffffff;
+  --surface-2: #f3f7f4;
+  --ink: #1a2e24;
+  --muted: #5a6d63;
+  --faint: #8a9a91;
+  --line: #d5e0d8;
+  --line-soft: #e7eee9;
+  color-scheme: light;
+  background: #ffffff;
+  color: #1a2e24;
+}
+
+@media print {
+  @page {
+    margin: 14mm;
+  }
+
+  body * {
+    visibility: hidden !important;
+  }
+
+  #print-root,
+  #print-root * {
+    visibility: visible !important;
+  }
+
+  #print-root {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    background: white !important;
+    color: #1a2e24 !important;
+  }
+}

@@ -1,0 +1,24 @@
+# Dependências e resultado do build. Instale de novo com npm install.
+node_modules/
+dist/
+dist-ssr/
+.vite/
+
+# Segredos e configuração desta máquina. Nunca vão para o GitHub.
+.env
+.env.*
+!.env.example
+*.local
+
+# Cadastro, backup e planilhas exportadas neste computador.
+backup-*.json
+*.xlsx
+
+# Sistema e editor
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.log
+npm-debug.log*
+.idea/
+.vscode/
